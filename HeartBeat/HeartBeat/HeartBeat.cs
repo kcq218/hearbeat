@@ -13,7 +13,7 @@ namespace HeartBeat
         }
 
         [Function("HearBeat")]
-        public void Run([TimerTrigger("*/30 * * * *")] TimerInfo myTimer)
+        public void Run([TimerTrigger("30 * * * *")] TimerInfo myTimer)
         {
             try
             {
