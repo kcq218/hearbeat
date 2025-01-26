@@ -3,16 +3,16 @@ using Microsoft.Extensions.Logging;
 
 namespace HeartBeat
 {
-    public class HeartBeat
+    public class HeartBeatFunction
     {
         private readonly ILogger _logger;
 
-        public HeartBeat(ILoggerFactory loggerFactory)
+        public HeartBeatFunction(ILoggerFactory loggerFactory)
         {
-            _logger = loggerFactory.CreateLogger<HeartBeat>();
+            _logger = loggerFactory.CreateLogger<HeartBeatFunction>();
         }
 
-        [Function("HearBeat")]
+        [Function("HeartBeatFunction")]
         public void Run([TimerTrigger("0 */30 * * * *")] TimerInfo myTimer)
         {
             try

@@ -2,6 +2,8 @@ using Microsoft.Azure.Functions.Worker;
 using Microsoft.Azure.Functions.Worker.Builder;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
+using Microsoft.Extensions.Logging;
+using HeartBeat;
 
 var host = new HostBuilder()
     .ConfigureFunctionsWebApplication()
@@ -9,6 +11,7 @@ var host = new HostBuilder()
     {
         services.AddApplicationInsightsTelemetryWorkerService();
         services.ConfigureFunctionsApplicationInsights();
+        services.AddScoped<ILogger<HeartBeatFunction>, Logger<HeartBeatFunction>>();
     })
     .Build();
 
